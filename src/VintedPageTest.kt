@@ -25,12 +25,13 @@ class VintedPageTest {
     }
 
     @Test
-    fun emptyTest() {
+    fun priceValidationTest() {
         val validatePrice = ValidatePrice(driver)
         validatePrice.clickOnWomanTab()
         validatePrice.clickOnAllClothesTab()
         validatePrice.clickOnPriceTab()
         validatePrice.inputToPriceFrom()
+        validatePrice.inputToPriceTo()
     }
 
     @Test

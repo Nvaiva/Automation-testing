@@ -20,6 +20,9 @@ class ValidatePrice(private val driver: WebDriver) {
     @FindBy(xpath = "//input[@id='price_from']")
     private lateinit var priceFrom: WebElement
 
+    @FindBy(xpath = "//input[@id='price_to']")
+    private lateinit var priceTo: WebElement
+
     init {
         PageFactory.initElements(AjaxElementLocatorFactory(driver, 15), this)
     }
@@ -40,6 +43,11 @@ class ValidatePrice(private val driver: WebDriver) {
         priceFrom.sendKeys("-5")
         priceFrom.sendKeys(Keys.ENTER)
         assertTrue(driver.currentUrl.contains("price_from=5"))
+    }
+    fun inputToPriceTo(){
+        priceTo.sendKeys(".")
+        priceTo.sendKeys(Keys.ENTER)
+        assertTrue(driver.currentUrl.contains("price_from=0.00"))
     }
 
 }
